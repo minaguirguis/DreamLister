@@ -91,3 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+let ad = UIApplication.shared.delegate as! AppDelegate
+//ad stands for app delegate
+//this was created so everytime we need to access something in the app delegate, all we would need to do is call "ad.(whateverfunction)"
+let context = ad.persistentContainer.viewContext
+
+
