@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56039EBD1FC7FCB300BD3269 /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56039EBC1FC7FCB300BD3269 /* ItemDetailsVC.swift */; };
+		560ABAE61FCA810000D25819 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560ABAE51FCA810000D25819 /* CustomTextField.swift */; };
 		56B88F111FA42999001BECCC /* ItemType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B88F091FA42999001BECCC /* ItemType+CoreDataClass.swift */; };
 		56B88F121FA42999001BECCC /* ItemType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B88F0A1FA42999001BECCC /* ItemType+CoreDataProperties.swift */; };
 		56B88F131FA42999001BECCC /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B88F0B1FA42999001BECCC /* Item+CoreDataClass.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56039EBC1FC7FCB300BD3269 /* ItemDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
+		560ABAE51FCA810000D25819 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		56B88F091FA42999001BECCC /* ItemType+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataClass.swift"; sourceTree = "<group>"; };
 		56B88F0A1FA42999001BECCC /* ItemType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		56B88F0B1FA42999001BECCC /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -59,11 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56039EBB1FC7FC5800BD3269 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56FB9E241FA41E2F00F7212B /* MainVC.swift */,
+				56039EBC1FC7FCB300BD3269 /* ItemDetailsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		56DE38E61FA447D5005D6D02 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				56DE38E71FA4480C005D6D02 /* MaterialView.swift */,
 				56DE38E91FA4517D005D6D02 /* ItemCell.swift */,
+				560ABAE51FCA810000D25819 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -91,7 +105,7 @@
 				56FB9E471FA427FD00F7212B /* Model */,
 				56FB9E481FA4280100F7212B /* Generated */,
 				56FB9E221FA41E2F00F7212B /* AppDelegate.swift */,
-				56FB9E241FA41E2F00F7212B /* MainVC.swift */,
+				56039EBB1FC7FC5800BD3269 /* Controller */,
 				56DE38E41FA44721005D6D02 /* tesla.png */,
 				56FB9E261FA41E2F00F7212B /* Main.storyboard */,
 				56FB9E2C1FA41E2F00F7212B /* Assets.xcassets */,
@@ -205,11 +219,13 @@
 				56B88F111FA42999001BECCC /* ItemType+CoreDataClass.swift in Sources */,
 				56B88F181FA42999001BECCC /* Store+CoreDataProperties.swift in Sources */,
 				56B88F151FA42999001BECCC /* Image+CoreDataClass.swift in Sources */,
+				56039EBD1FC7FCB300BD3269 /* ItemDetailsVC.swift in Sources */,
 				56B88F121FA42999001BECCC /* ItemType+CoreDataProperties.swift in Sources */,
 				56FB9E251FA41E2F00F7212B /* MainVC.swift in Sources */,
 				56B88F171FA42999001BECCC /* Store+CoreDataClass.swift in Sources */,
 				56FB9E231FA41E2F00F7212B /* AppDelegate.swift in Sources */,
 				56FB9E2B1FA41E2F00F7212B /* DreamLister.xcdatamodeld in Sources */,
+				560ABAE61FCA810000D25819 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
