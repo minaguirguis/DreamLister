@@ -20,7 +20,7 @@ class ItemCell: UITableViewCell {
         title.text = item.title//we are setting iboutlets to the item information
         price.text = "$\(item.price)"
         details.text = item.details
-        
+        thumb.image = item.toImage?.image as? UIImage
     }
 
 }

@@ -9,16 +9,19 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var PriceField: CustomTextField!
     @IBOutlet weak var detailsField: CustomTextField!
+    @IBOutlet weak var thumbImg: UIImageView!
     
     var stores = [Store]()
-    var itemToEdit: Item?
     //made it optional by putting "?"
+    var itemToEdit: Item?
+    var imagePicker: UIImagePickerController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,10 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         storePicker.delegate = self
         storePicker.dataSource = self
+        
+        //instantiating it
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         let store = Store(context: context)
         store.name = "Best Buy"
@@ -88,6 +95,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBAction func savePressed(_ sender: UIButton) {
         
         var item: Item!
+        let picture = Image(context: context)
+        picture.image = thumbImg.image
         
         if itemToEdit == nil {
             
@@ -97,6 +106,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             item = itemToEdit
         }
         
+        item.toImage = picture
         
         
         //then we started assigning those variables
@@ -131,6 +141,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             PriceField.text = "\(item.price)"
             detailsField.text = item.details
             
+            thumbImg.image = item.toImage?.image as? UIImage
+            
             //what this loop does is that it loops through to see what the correct store is and assigns it to a different variable
             if let store = item.toStore {//check to see if there is a store (item might not have one)
                 
@@ -145,12 +157,41 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
                     }
                     index += 1
                     
-                }while (index < stores.count)
+                } while (index < stores.count)
             }
             
         }
         
     }
+    
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        
+        //make sure we have an item to delete
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)//to delete item
+            ad.saveContext()//saving it in core data
+        }
+        
+        navigationController?.popViewController(animated: true)//go back to original view
+    }
+    
+    @IBAction func addImage(_ sender: UIButton) {
+        
+       present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            thumbImg.image = img
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)//dissmiss the camera roll
+        
+    }
+    
     
     
 }

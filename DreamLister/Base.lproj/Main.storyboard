@@ -161,7 +161,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-nR-h5O">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-nR-h5O">
                                 <rect key="frame" x="8" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="d8A-Tg-iqd"/>
@@ -174,6 +174,9 @@
                                     <constraint firstAttribute="height" constant="30" id="DNk-9V-tzM"/>
                                     <constraint firstAttribute="width" constant="30" id="p1e-DM-bhn"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="USK-K3-4a7" eventType="touchUpInside" id="ag3-tc-ZYl"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYM-52-3nt" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="116" y="82" width="251" height="40"/>
@@ -266,12 +269,16 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="KhY-SQ-0CE">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qLm-7a-Ufq">
                             <color key="tintColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="USK-K3-4a7" id="aMe-of-h1G"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="PriceField" destination="YWF-Vg-1oJ" id="Jf5-So-QrT"/>
                         <outlet property="detailsField" destination="UtA-JG-c2f" id="eFs-pd-mvX"/>
                         <outlet property="storePicker" destination="rGZ-e3-5fF" id="x1n-nR-OAH"/>
+                        <outlet property="thumbImg" destination="cd1-nR-h5O" id="Jqg-4F-b6Y"/>
                         <outlet property="titleField" destination="rYM-52-3nt" id="CR0-yD-18r"/>
                     </connections>
                 </viewController>
